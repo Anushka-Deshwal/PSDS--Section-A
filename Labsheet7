@@ -1,0 +1,52 @@
+import heapq
+heap = []
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 20)
+heapq.heappush(heap, 15)
+print("Min Heap:", heap)
+print("Elements according to priority:")
+while heap:
+    print(heapq.heappop(heap), end=" ")
+arr = [5, 2, 8, 1, 3]
+heap = []
+for x in arr:
+    heapq.heappush(heap, x)
+sorted_arr = []
+while heap:
+    sorted_arr.append(heapq.heappop(heap))
+print("\nHeap Sort:", sorted_arr)
+
+------------------------------------------
+arr = [4, 2, 7, 1]
+arr.sort()
+result = []
+left = 0
+right = len(arr) - 1
+while left <= right:
+    result.append(arr[left])
+    left += 1
+    if left <= right:
+        result.append(arr[right])
+        right -= 1
+total = 0
+for i in range(1, len(result)):
+    total += abs(result[i] - result[i - 1])
+print("Rearranged array:", result)
+print("Total sum:", total)
+
+----------------------------------------------
+   total += arr[right]
+    while total > target:
+        if right - left + 1 < minimum:
+            minimum = right - left + 1
+            start = left
+            end = right
+        total -= arr[left]
+        left += 1
+if minimum == float('inf'):
+    print("No subarray found")
+else:
+    print("Subarray:", arr[start:end + 1])
+    print("Length:", minimum)
+    print("Sum:", sum(arr[start:end + 1]))
